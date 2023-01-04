@@ -8,7 +8,7 @@ var historyArray = localHistory();
 function convertSearch() {
     var input = document.getElementById("input").value.trim();
 
-    fetch("https://api.openweathermap.org/data/2.5/weather?q="+ input + "&limit=1&appid=4c68348ebef06f62bb4687ae1b234b42")
+    fetch("https://api.openweathermap.org/geo/2.5/direct?q=" + input + "&limit=1&appid=4c68348ebef06f62bb4687ae1b234b42")
     .then((response) => response.json())
     .then(function(data) {
         var lon = data[0].lon;
@@ -24,7 +24,7 @@ function convertSearch() {
 function convertHistorySearch(historyBtnInfo) {
     var input = historyBtnInfo.textContent;
 
-    fetch("https://api.openweathermap.org/data/2.5/weather?" + lat + "&lon=" + lon + "&exclude=minutely&units=imperial&appid=4c68348ebef06f62bb4687ae1b234b42")
+    fetch("http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=4c68348ebef06f62bb4687ae1b234b42")
     .then((response) => response.json())
     .then(function (data) {
         var lon = data[0].lon;
