@@ -3,7 +3,7 @@
 var searchBtn = document.getElementById("searchBtn");
 var forecastEl = document.getElementById("forecasts");
 
-var historyArray = localHistory();
+var historyArray = loadlHistory();
 
 function convertSearch() {
     var input = document.getElementById("input").value.trim();
