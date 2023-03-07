@@ -124,10 +124,10 @@ function renderWeather() {
 
             // render icon/weather indicator to screen
             forecastOneInd.src = "./assets/img/weatherIcons/" + weatherInds[0] + ".png";
-            forecastTwoInd.src = "./assets/images/weatherIcons/" + weatherInds[1] + ".png";
-            forecastThreeInd.src = "./assets/images/weatherIcons/" + weatherInds[2] + ".png";
-            forecastFourInd.src = "./assets/images/weatherIcons/" + weatherInds[3] + ".png";
-            forecastFiveInd.src = "./assets/images/weatherIcons/" + weatherInds[4] + ".png";
+            forecastTwoInd.src = "./assets/img/weatherIcons/" + weatherInds[1] + ".png";
+            forecastThreeInd.src = "./assets/img/weatherIcons/" + weatherInds[2] + ".png";
+            forecastFourInd.src = "./assets/img/weatherIcons/" + weatherInds[3] + ".png";
+            forecastFiveInd.src = "./assets/img/weatherIcons/" + weatherInds[4] + ".png";
 
             // render temp to screen
             forecastOneTemp.textContent = "Temp: " + temps[0] + "\u00b0F";
