@@ -1,0 +1,186 @@
+/* establish global variable */
+:root {
+  --muktaFamily: Mukta, Arial, Helvetica, sans-serif;
+  --darkBlue: rgb(0, 48, 108);
+  --lightBlue: rgb(12, 120, 194);
+  --lightGray: rgba(169, 169, 169, 0.404);
+  --darkGray: rgb(143, 143, 143);
+  --white: rgba(255, 255, 255, 0.95);
+  --darkBlueGray: rgba(50, 61, 79);
+}
+
+/* style navbar */
+#navbarContainer {
+  display: flex;
+  height: 75px;
+  justify-content: space-between;
+  text-align: center;
+  background-image: linear-gradient(to right, rgba(255, 0, 0, 0), var(--lightBlue), var(--lightBlue), var(--darkBlue));
+}
+
+/* style the header */
+#headerSpan {
+  font-family: var(--muktaFamily);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+
+/* style the sidebar */
+sidebar {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  top: 75px;
+  background-color: white;
+  z-index: 200;
+}
+
+.sidebar-link {
+  background-color: white;
+  border-bottom: 2px solid var(--lightGray);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+}
+
+.sidebar-link:first-child {
+  margin-top: 12px;
+}
+
+.sidebar-link div {
+  font-family: var(--muktaFamily);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--darkGray);
+}
+
+.sidebar-link:hover {
+  background-color: rgb(235, 235, 235);
+  cursor: pointer;
+  transition: all 0.20s ease-in;
+}
+
+.sidebar-link:active,
+.sidebar-link:active>div {
+  background-color: var(--darkGray);
+  color: var(--white);
+  transition: all 0.05s ease-in;
+}
+
+/* style the current city container */
+.current-city {
+  color: var(--darkGray);
+  /* height: 50%; */
+  display: flexbox;
+  height: 49%;
+  margin: 10px;
+  padding: 6px;
+  margin-left: 12px;
+  border: 2px solid var(--lightGray);
+}
+
+.current-city:hover {
+  box-shadow: 1px 1px 2px 1px var(--lightGray);
+}
+
+.current-city h1 {
+  color: black;
+}
+
+h2 {
+  margin: 10px;
+  padding: 12px 0 12px;
+}
+
+/* style the cards for the five day forecast */
+#five-day-forecast {
+  display: flexbox;
+  height: 58%;
+  margin: 10px;
+  margin-left: 12px;
+  padding: 0;
+}
+
+#img-icon {
+  width: 50px;
+  margin-bottom: 5px;
+}
+
+#forecast-cards {
+  justify-content: space-between;
+}
+
+#forecast-day-one,
+#forecast-day-two,
+#forecast-day-three,
+#forecast-day-four,
+#forecast-day-five {
+  font-family: var(--muktaFamily);
+  height: 300px;
+  margin-right: 15px;
+  margin-top: 5px;
+  padding-top: 12px;
+  display: block;
+  color: var(--white);
+  background-color: var(--darkBlueGray);
+  transition: all 0.25s ease-in;
+}
+
+#forecast-day-one {
+  margin-left: 0;
+}
+
+#forecast-day-one:hover,
+#forecast-day-two:hover,
+#forecast-day-three:hover,
+#forecast-day-four:hover,
+#forecast-day-five:hover {
+  box-shadow: 1px 1px 20px 1px var(--lightBlue);
+}
+
+h5 {
+  font-weight: 500;
+}
+
+#current-city-temp:hover,
+#current-city-wind:hover,
+#current-city-humidity:hover {
+  font-size: 125%;
+  font-weight: 600;
+  transition: all 0.25s ease-in;
+}
+
+
+#img-icon:hover {
+  width: 60px;
+  transition: all 0.25s ease-in;
+}
+
+#p-temp:hover,
+#p-wind:hover,
+#p-humidity:hover {
+  font-size: 110%;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: all 0.25s ease-in;
+}
+
+/* change the font size of the header and the current city container at 750px width and below */
+@media screen and (max-width: 750px) {
+  #headerSpan {
+    font-size: 1.8em;
+  }
+
+  .current-city {
+    height: auto;
+  }
+}

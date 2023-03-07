@@ -1,97 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/style.css" />
-    <title>Document</title>
+    <!-- add style sheets and bootstrap as well as google fonts API source info -->
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link rel="stylesheet" href="./assets/style/searchbar.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
     <header>
-        <h1>Weather Forcast Application</h1>
+        <!-- create a top navbar -->
+        <nav class="navbar navbar-light bg-light px-3 justify-content-center" id="navbarContainer">
+            <span class="mb-0 h1" id="headerSpan">Weather Dashboard</span>
+        </nav>
+        <!-- create a search container that will be initially hidden until user clicks search from a sidebar menu -->
+        <div class="hide" id="search-container">
+            <input class="search-bar" type="input" placeholder="Search for a City, State" style="display: none;">
+            <button class="search-button">
+                <img class="search-icon" src="./assets/images/search.svg">
+            </button>
+        </div>
     </header>
-    <div class="row w-100 mainbody">
-        <aside class="col-4 searchArea">
-            <div>
-                <h2>Search Location</h2>
-                <input id="input" onfocus="this.value=''" placeholder="Columbus, OHIO">
-                <button id="searchBtn">Search
-                </button>
-            </div>
-            <hr>
-            <div class="history">
-                <h3>Past Locations</h3>
-                <button id="btn0">--</button>
-                <button id="btn1">--</button>
-                <button id="btn2">--</button>
-                <button id="btn3">--</button>
-                <button id="btn4">--</button>
-            </div>
-        </aside>
 
-        <main id="forcasts" class="col-hidden">
-            <ul class="currentFC">
-                <li class="currentTitle"><span id="currentCity">City </span> <span id="currentDate"> --/--/-- </span>  <img class="icon" id="currentIcon"></img></li>>
-                <li>Temperature: <span id="currentTemp">--</span>°F</li>
-                <li>Humidity: <span id="currentHumidity">--</span>%</li>
-                <li>Wind Speed: <span id="currentWind">--</span>mph</li>
-            </ul>
-            <h4>Week Outlook</h4>
-            <div class="weekOut row">
-                <ul class="col" id="day1">
-                    <li id="date1">--/--/--</li>
-                    <img class = "icon" id="icon1"></img>
-                    <li id="temp1">Temp: </li>
-                    <li id="humidity1">Humidity: </li>
-                    <li id="wind1">Wind Speed:</li>
-                </ul>
-                <ul class="col" id="day2">
-                    <li id="date2">--/--/--</li>
-                    <img class = "icon" id="icon2"></img>
-                    <li id="temp2">Temp: </li>
-                    <li id="humidity2">Humidity: </li>
-                    <li id="wind2">Wind Speed:</li>
-                </ul>
-                <ul class="col" id="day3">
-                    <li id="date3">--/--/--</li>
-                    <img class = "icon" id="icon3"></img>
-                    <li id="temp3">Temp: </li>
-                    <li id="humidity3">Humidity: </li>
-                    <li id="wind3">Wind Speed:</li>
-                </ul>
-                <ul class="col" id="day4">
-                    <li id="date4">--/--/--</li>
-                    <img class = "icon" id="icon4"></img>
-                    <li id="temp4">Temp: </li>
-                    <li id="humidity4">Humidity: </li>
-                    <li id="wind4">Wind Speed:</li>
-                </ul>
-                <ul class="col" id="day5">
-                    <li id="date5">--/--/--</li>
-                    <img class = "icon" id="icon5"></img>
-                    <li id="temp5">Temp: </li>
-                    <li id="humidity5">Humidity: </li>
-                    <li id="wind5">Wind Speed:</li>
-                </ul>
+    <main class="d-flex min-vh-100">
+        <div class="container-fluid my-0">
+            <div class="row align-items-end mx-0 p-0">
+                <div class="row">
+                    <div class="d flex col 2 col-sm-2 col-md-2 col-lg-1 p-0 m-0">
+                        <nav class="sidebar">
+                            <div class="sidebar-link" id="search-button">
+                                <div>Search</div>
+                            </div>
+                            <div class="sidebar-link" id="clear-button">
+                                <!-- <img src="icons/explore.svg"> -->
+                                <div>Clear</div>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- create container for the current city weather information -->
+                    <div class="d flex col 12 col-sm-9 col-md-10 col-lg-10">
+                        <div class="current-city">
+                            <h1 id="h1-current-city"></h1>
+                            <img src="./assets/images/weatherIcons/02d.png" id="current-img-icon" />
+                            <p id="current-city-temp">Temp: 32<span>&#8457</span></p>
+                            <p id="current-city-wind">Wind: 15mph</p>
+                            <p id="current-city-humidity">Humidity: 44%</p>
+                        </div>
+                        <!-- create header and placeholder containers for 5-day forecast -->
+                        <h2>5-Day Forecast:</h2>
+                        <div class="row justify-content-center mx-0 p-0" id="five-day-forecast">
+                            <div class="col-12" id="five-day-container">
+                                <div class="row justify-content-center p-0 m-0" id="forecast-cards">
+                                    <div class="col-12 col-md-4 col-lg-2" id="forecast-day-one">
+                                        <h5>11/23/2022</h5>
+                                        <img src="./assets/images/weatherIcons/02d.png" id="img-icon" />
+                                        <p id="p-temp">Temp: 65</p>
+                                        <p id="p-wind">Wind: 55mph</p>
+                                        <p id="p-humidity">Humidity: 55%</p>
+                                    </div>
+                                    <div class="col-12 col-md-4 col-lg-2" id="forecast-day-two">
+                                        <h5>11/24/2022</h5>
+                                        <img src="./assets/images/weatherIcons/02d.png" id="img-icon" />
+                                        <p id="p-temp">Temp: 65</p>
+                                        <p id="p-wind">Wind: 55mph</p>
+                                        <p id="p-humidity">Humidity: 55%</p>
+                                    </div>
+                                    <div class="col-12 col-md-4 col-lg-2" id="forecast-day-three">
+                                        <h5>11/25/2022</h5>
+                                        <img src="./assets/images/weatherIcons/02d.png" id="img-icon" />
+                                        <p id="p-temp">Temp: 65</p>
+                                        <p id="p-wind">Wind: 55mph</p>
+                                        <p id="p-humidity">Humidity: 55%</p>
+                                    </div>
+                                    <div class="col-12 col-md-4 col-lg-2" id="forecast-day-four">
+                                        <h5>11/26/2022</h5>
+                                        <img src="./assets/images/weatherIcons/02d.png" id="img-icon" />
+                                        <p id="p-temp">Temp: 65</p>
+                                        <p id="p-wind">Wind: 55mph</p>
+                                        <p id="p-humidity">Humidity: 55%</p>
+                                    </div>
+                                    <div class="col-12 col-md-4 col-lg-2" id="forecast-day-five">
+                                        <h5>11/27/2022</h5>
+                                        <img src="./assets/images/weatherIcons/02d.png" id="img-icon" />
+                                        <p id="p-temp">Temp: 65</p>
+                                        <p id="p-wind">Wind: 55mph</p>
+                                        <p id="p-humidity">Humidity: 55%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </main>
-    </div>
+        </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script src="./assets/script.js"></script>
+    </main>
+    <!-- add in jquery API source infor and link to custom scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="./assets/script/search.js"></script>
+    <script src="./assets/script/fetch.js"></script>
+    <script src="./assets/script/render.js"></script>
 
 </body>
+
 </html>
