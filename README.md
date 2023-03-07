@@ -6,3 +6,6 @@ This app will allow users to view weather in specific cities. All they need to d
 
 ## Live Application
 The deployed webpage can be found here: https://projectmayhem90.github.io/ch-6-weather-API/ 
+
+## issues
+After months and the last 3 weeks I was able to add script files in brokendown order, I still couldnt get images to load, nor could I get day 5 to show. I will leave this for now and hopefully update at a later date.

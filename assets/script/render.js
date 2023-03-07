@@ -78,7 +78,7 @@ function renderWeather() {
 
     // render all of the current weather information
     h1CurrentCityEl.textContent = city + ' ' + currentMonth + "/" + currentDay + "/" + currentYear;
-    currentIndEl.src = "./assets/images/weatherIcons/" + currentInd + ".png";
+    currentIndEl.src = "./assets/img/weatherIcons/" + currentInd + ".png";
     currentTempEl.innerHTML = "Temp: " + currentWeatherTemp + "\u00b0F";
     currentWindEl.textContent = "Wind: " + currentWeatherWind + "mph";
     currentHumidityEl.textContent = "Humidity: " + currentWeatherHumidity + "%";
@@ -123,7 +123,7 @@ function renderWeather() {
             forecastFiveDate.textContent = displayDates[4];
 
             // render icon/weather indicator to screen
-            forecastOneInd.src = "./assets/images/weatherIcons/" + weatherInds[0] + ".png";
+            forecastOneInd.src = "./assets/img/weatherIcons/" + weatherInds[0] + ".png";
             forecastTwoInd.src = "./assets/images/weatherIcons/" + weatherInds[1] + ".png";
             forecastThreeInd.src = "./assets/images/weatherIcons/" + weatherInds[2] + ".png";
             forecastFourInd.src = "./assets/images/weatherIcons/" + weatherInds[3] + ".png";
