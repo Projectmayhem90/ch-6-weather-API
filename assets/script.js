@@ -6,7 +6,7 @@ var historyArray = loadHistory();
 
 function convertSearch() {
     var input = document.getElementById("input").value.trim();
-    fetch("https://api.openweathermap.org/geo/2.5/direct?q=" + input + "&limit=1&appid=4c68348ebef06f62bb4687ae1b234b42")
+    fetch("https://api.openweathermap.org/geo/2.5/direct?q=" + input + "&limit=1&appid=75a1cfd990ad39a2bf755452329cdade")
     .then((response) => response.json())
     .then(function(data) {
         var lon = data[0].lon;
@@ -20,7 +20,7 @@ function convertSearch() {
 };
 function convertHistorySearch(historyBtnInfo) {
     var input = historyBtnInfo.textContent;
-    fetch("http://api.openweathermap.org/data/3.0/forecast?id=524901&appid=4c68348ebef06f62bb4687ae1b234b42")
+    fetch("api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=75a1cfd990ad39a2bf755452329cdade")
     .then((response) => response.json())
     .then(function (data) {
         var lon = data[0].lon;
@@ -30,7 +30,7 @@ function convertHistorySearch(historyBtnInfo) {
     })
 };
 function getWeatherData(lon, lat, city) {
-    fetch("https://api.openweathermap.org/data/3.0/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely&units=imperial&appid=3235f6ca43f152b21beee3053909231f")
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely&units=imperial&appid=75a1cfd990ad39a2bf755452329cdade")
         .then((response) => response.json())
         .then(function (data) {
             console.log(data);
